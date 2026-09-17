@@ -1,6 +1,8 @@
 /* ============================================================
-   script.js — Optimum Fitness | Monster Theme
-   Full interactive logic & Premium Monster Glyph SVG Engine
+   script.js — Big Tex Gym | Hardcore Veteran-Owned Theme
+   Full interactive logic, Three.js 3D Background, 
+   Bento Grid, Interactive Regimes Showcase & Card 3D Tilt
+   100% Zero Emojis — Powered by Clean SVG Glyphs
    ============================================================ */
 
 'use strict';
@@ -11,7 +13,7 @@ const $$ = (s, c = document) => [...c.querySelectorAll(s)];
 const mk = (tag, cls) => { const e = document.createElement(tag); if (cls) e.className = cls; return e; };
 
 /* ============================================================
-   0. PREMIUM MONSTER GLYPH SVG ENGINE
+   0. PREMIUM GLYPH SVG ENGINE (ZERO EMOJIS)
 ============================================================ */
 const MONSTER_ICONS = {
   skull: `
@@ -90,16 +92,6 @@ const MONSTER_ICONS = {
       <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
     </svg>
   `,
-  chat: `
-    <svg viewBox="0 0 24 24" fill="currentColor">
-      <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/>
-    </svg>
-  `,
-  radar: `
-    <svg viewBox="0 0 24 24" fill="currentColor">
-      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8 0-2.02.75-3.87 2-5.28V12h2v-4.14c1.17-.55 2.54-.86 4-.86s2.83.31 4 .86V12h2V6.72c1.25 1.41 2 3.26 2 5.28 0 4.41-3.59 8-8 8zm0-10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
-    </svg>
-  `,
   home: `
     <svg viewBox="0 0 24 24" fill="currentColor">
       <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
@@ -108,6 +100,46 @@ const MONSTER_ICONS = {
   question: `
     <svg viewBox="0 0 24 24" fill="currentColor">
       <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 16h-2v-2h2v2zm1.07-7.75l-.9.92C12.45 11.9 12 12.5 12 14h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/>
+    </svg>
+  `,
+  star: `
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+    </svg>
+  `,
+  target: `
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm0-14c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
+    </svg>
+  `,
+  mail: `
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+    </svg>
+  `,
+  key: `
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12.65 10C11.83 7.67 9.61 6 7 6c-3.31 0-6 2.69-6 6s2.69 6 6 6c2.61 0 4.83-1.67 5.65-4H17v4h4v-4h2v-4H12.65zM7 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
+    </svg>
+  `,
+  search: `
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+    </svg>
+  `,
+  chart: `
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"/>
+    </svg>
+  `,
+  check: `
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+    </svg>
+  `,
+  arrow: `
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
     </svg>
   `,
 };
@@ -127,12 +159,12 @@ function hydrateMonsterIcons(root = document) {
 }
 
 /* ============================================================
-   1. HEADER SCROLL
+   1. HEADER SCROLL & BLUR
 ============================================================ */
 (function initHeaderScroll() {
   const header = $('#site-header');
   if (!header) return;
-  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 40);
+  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 30);
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 })();
@@ -212,19 +244,22 @@ document.addEventListener('click', e => {
 });
 
 /* ============================================================
-   5. STATS — build + count-up animation
+   5. FLOATING HERO STATS DOCK — build + count-up animation
 ============================================================ */
 (function buildStats() {
   const grid = $('#stats-grid');
   if (!grid || !window.STATS) return;
 
+  grid.innerHTML = '';
   STATS.forEach((s, i) => {
-    const item = mk('div', 'stat-item reveal');
-    item.style.transitionDelay = `${i * 80}ms`;
+    const item = mk('div', 'stat-item');
+    item.setAttribute('data-tilt', '');
+    item.style.animationDelay = `${0.3 + i * 0.12}s`;
+    const starSvg = s.icon === 'star' ? `<span class="stat-star-svg">${getMonsterSVG('star')}</span>` : '';
     item.innerHTML = `
       <div class="stat-icon monster-glyph-box" data-monster-icon="${s.icon}">${getMonsterSVG(s.icon)}</div>
       <span class="stat-value">
-        <span class="stat-num" data-target="${s.value}">0</span><span class="stat-suffix">${s.suffix}</span>
+        <span class="stat-num" data-target="${s.value}">${s.value}</span>${starSvg}<span class="stat-suffix">${s.suffix || ''}</span>
       </span>
       <span class="stat-label">${s.label}</span>
       <span class="stat-sub">${s.sub || ''}</span>
@@ -237,48 +272,69 @@ document.addEventListener('click', e => {
     if (entries[0].isIntersecting && !done) {
       done = true;
       $$('.stat-num').forEach(span => {
-        const target = +span.dataset.target;
-        const dur    = 1800;
-        const step   = 16;
-        const inc    = target / (dur / step);
-        let cur      = 0;
-        const timer  = setInterval(() => {
-          cur = Math.min(cur + inc, target);
-          span.textContent = Math.round(cur).toLocaleString();
-          if (cur >= target) clearInterval(timer);
-        }, step);
+        const raw = span.dataset.target || '';
+        const cleanNum = parseFloat(raw.replace(/[^0-9.]/g, ''));
+        if (!isNaN(cleanNum) && !/[a-zA-Z]/.test(raw) && !raw.includes('/')) {
+          const hasDec = raw.includes('.');
+          const dur    = 1600;
+          const step   = 20;
+          const inc    = cleanNum / (dur / step);
+          let cur      = 0;
+          const timer  = setInterval(() => {
+            cur = Math.min(cur + inc, cleanNum);
+            span.textContent = hasDec 
+              ? cur.toFixed(1)
+              : Math.round(cur).toLocaleString();
+            if (cur >= cleanNum) {
+              clearInterval(timer);
+              span.textContent = raw;
+            }
+          }, step);
+        } else {
+          span.textContent = raw;
+        }
       });
     }
-  }, { threshold: 0.25 });
+  }, { threshold: 0.15 });
 
-  const bar = $('#stats-bar');
-  if (bar) io.observe(bar);
+  if (grid) io.observe(grid);
 })();
 
 /* ============================================================
-   6. FEATURES GRID (8 Items with Deep Specs)
+   6. MODERN BENTO GRID (Features & Equipment)
 ============================================================ */
 (function buildFeatures() {
   const grid = $('#features-grid');
   if (!grid || !window.FEATURES) return;
 
+  grid.innerHTML = '';
   FEATURES.forEach((f, i) => {
-    const card = mk('div', 'feature-card reveal');
+    const bentoType = f.bento || 'standard';
+    const card = mk('div', `bento-card bento-${bentoType} reveal in`);
+    card.setAttribute('data-tilt', '');
     card.style.transitionDelay = `${(i % 4) * 80}ms`;
 
+    const highlightBadge = f.highlight 
+      ? `<span class="bento-badge"><span class="monster-icon-inline">${getMonsterSVG('lightning')}</span> ${f.highlight}</span>`
+      : '';
+
     const specsHtml = f.specs 
-      ? `<ul class="feature-specs-list">
-          ${f.specs.map(sp => `<li><span class="monster-icon-inline">${getMonsterSVG('lightning')}</span> ${sp}</li>`).join('')}
+      ? `<ul class="bento-specs">
+          ${f.specs.map(sp => `<li><span class="monster-icon-inline">${getMonsterSVG('check')}</span> <span>${sp}</span></li>`).join('')}
          </ul>` 
       : '';
 
     card.innerHTML = `
-      <div class="feature-head">
+      <div class="bento-glow-fx"></div>
+      <div class="bento-head">
         <div class="monster-glyph-box">${getMonsterSVG(f.icon)}</div>
-        <span class="feature-tag">${f.tag || 'MONSTER'}</span>
+        <div class="bento-meta">
+          <span class="bento-tag">${f.tag || 'HARDCORE'}</span>
+          ${highlightBadge}
+        </div>
       </div>
-      <h3 class="feature-title">${f.title}</h3>
-      <p class="feature-desc">${f.desc}</p>
+      <h3 class="bento-title">${f.title}</h3>
+      <p class="bento-desc">${f.desc}</p>
       ${specsHtml}
     `;
     grid.appendChild(card);
@@ -286,34 +342,81 @@ document.addEventListener('click', e => {
 })();
 
 /* ============================================================
-   7. TRAINING DIVISIONS (6 Regimes)
+   7. INTERACTIVE TRAINING REGIMES SHOWCASE
 ============================================================ */
 (function buildDivisions() {
-  const grid = $('#divisions-grid');
-  if (!grid || !window.DIVISIONS) return;
+  const tabsBar = $('#regime-tabs-bar');
+  const activeDisplay = $('#regime-active-card');
+  if (!tabsBar || !activeDisplay || !window.DIVISIONS || !DIVISIONS.length) return;
 
-  DIVISIONS.forEach((d, i) => {
-    const card = mk('div', 'division-card reveal');
-    card.style.transitionDelay = `${(i % 2) * 100}ms`;
-    card.innerHTML = `
-      <div class="division-top">
-        <div class="monster-glyph-box">${getMonsterSVG(d.icon)}</div>
-        <span class="division-badge">${d.badge}</span>
-      </div>
-      <h3 class="division-title">${d.title}</h3>
-      <p class="division-desc">${d.desc}</p>
-      
-      <div class="division-meta-box">
-        <div class="division-target-tag">🎯 ${d.target}</div>
-        <div class="division-split-tag">⚡ ${d.split}</div>
-      </div>
+  let activeIndex = 0;
 
-      <div class="division-highlights">
-        ${d.highlights.map(h => `<div class="division-item">${h}</div>`).join('')}
+  function renderTabs() {
+    tabsBar.innerHTML = '';
+    DIVISIONS.forEach((d, i) => {
+      const btn = mk('button', `regime-tab-btn${i === activeIndex ? ' active' : ''}`);
+      btn.innerHTML = `
+        <span class="regime-tab-icon">${getMonsterSVG(d.icon)}</span>
+        <span class="regime-tab-title">${d.badge}</span>
+      `;
+      btn.addEventListener('click', () => {
+        if (activeIndex === i) return;
+        activeIndex = i;
+        renderTabs();
+        renderActiveRegime();
+      });
+      tabsBar.appendChild(btn);
+    });
+  }
+
+  function renderActiveRegime() {
+    const d = DIVISIONS[activeIndex];
+    activeDisplay.classList.remove('fade-in');
+    void activeDisplay.offsetWidth; // trigger reflow for animation
+    activeDisplay.classList.add('fade-in');
+
+    activeDisplay.innerHTML = `
+      <div class="regime-inner">
+        <div class="regime-top-row">
+          <div class="regime-header-left">
+            <span class="regime-pill-badge"><span class="monster-icon-inline">${getMonsterSVG(d.icon)}</span> ${d.badge}</span>
+            <h3 class="regime-title">${d.title}</h3>
+          </div>
+          <a href="#pricing" class="btn btn-primary btn-sm regime-cta">
+            <span class="monster-icon-inline">${getMonsterSVG('lightning')}</span> SELECT REGIME
+          </a>
+        </div>
+
+        <p class="regime-desc">${d.desc}</p>
+
+        <div class="regime-meta-grid">
+          <div class="regime-meta-card">
+            <span class="regime-meta-lbl"><span class="monster-icon-inline">${getMonsterSVG('target')}</span> ATHLETE PROFILE</span>
+            <span class="regime-meta-val">${d.target}</span>
+          </div>
+          <div class="regime-meta-card">
+            <span class="regime-meta-lbl"><span class="monster-icon-inline">${getMonsterSVG('lightning')}</span> PROGRAMMING SPLIT</span>
+            <span class="regime-meta-val">${d.split}</span>
+          </div>
+        </div>
+
+        <div class="regime-specs-container">
+          <h4 class="regime-specs-title">EQUIPMENT & SPEC HIGHLIGHTS</h4>
+          <div class="regime-specs-grid">
+            ${d.highlights.map(h => `
+              <div class="regime-spec-chip">
+                <span class="monster-icon-inline">${getMonsterSVG('check')}</span>
+                <span>${h}</span>
+              </div>
+            `).join('')}
+          </div>
+        </div>
       </div>
     `;
-    grid.appendChild(card);
-  });
+  }
+
+  renderTabs();
+  renderActiveRegime();
 })();
 
 /* ============================================================
@@ -327,9 +430,10 @@ function renderPricing(cycle = 'monthly') {
   grid.innerHTML = '';
 
   PLANS.forEach((plan, i) => {
-    const isFeatured = plan.badge === 'MOST FEARED';
-    const isUltimate = plan.badge === 'APEX PREDATOR';
+    const isFeatured = plan.badge === 'MOST POPULAR' || plan.badge === 'MOST FEARED';
+    const isUltimate = plan.badge === 'ELITE ACCESS' || plan.badge === 'APEX PREDATOR';
     const card = mk('div', `pricing-card reveal in${isFeatured ? ' featured' : isUltimate ? ' ultimate' : ''}`);
+    card.setAttribute('data-tilt', '');
     card.style.transitionDelay = `${i * 90}ms`;
 
     const price = cycle === 'quarterly' ? plan.quarterlyPrice : plan.monthlyPrice;
@@ -343,7 +447,7 @@ function renderPricing(cycle = 'monthly') {
       </div>
       <p class="plan-desc">${plan.desc}</p>
       <div class="plan-price">
-        <span class="plan-currency">PKR</span>
+        <span class="plan-currency">$</span>
         <span class="plan-amount">${price.toLocaleString()}</span>
         <span class="plan-period">${period}</span>
       </div>
@@ -351,12 +455,14 @@ function renderPricing(cycle = 'monthly') {
       <ul class="plan-features">
         ${plan.features.map(f => `
           <li class="plan-feature">
-            <span class="monster-icon-inline">${getMonsterSVG('lightning')}</span>
+            <span class="monster-icon-inline">${getMonsterSVG('check')}</span>
             <span>${f}</span>
           </li>
         `).join('')}
       </ul>
-      <a href="https://wa.me/923360222340?text=Salam%20Optimum%20Fitness!%20I%20want%20to%20register%20for%20the%20${encodeURIComponent(plan.name)}%20(${cycle})%20plan." target="_blank" rel="noopener noreferrer" class="btn btn-primary plan-cta">${plan.cta}</a>
+      <a href="#contact" class="btn btn-primary plan-cta" data-plan-id="${plan.id}">
+        <span class="monster-icon-inline">${getMonsterSVG('lightning')}</span> ${plan.cta}
+      </a>
     `;
     grid.appendChild(card);
   });
@@ -387,14 +493,16 @@ function renderPricing(cycle = 'monthly') {
 })();
 
 /* ============================================================
-   9. TIMETABLE & SHIFTS (6 Shifts)
+   9. TIMETABLE & SHIFTS
 ============================================================ */
 (function buildSchedule() {
   const grid = $('#schedule-grid');
   if (!grid || !window.SCHEDULE) return;
 
+  grid.innerHTML = '';
   SCHEDULE.forEach((s, i) => {
-    const card = mk('div', 'schedule-card reveal');
+    const card = mk('div', 'schedule-card reveal in');
+    card.setAttribute('data-tilt', '');
     card.style.transitionDelay = `${(i % 3) * 80}ms`;
     card.innerHTML = `
       <div class="schedule-top">
@@ -405,7 +513,7 @@ function renderPricing(cycle = 'monthly') {
       <div class="schedule-time">${s.time}</div>
       <p class="schedule-vibe"><strong>Atmosphere:</strong> ${s.vibe}</p>
       <p class="schedule-desc-text">${s.desc}</p>
-      <div class="schedule-access">🔑 ${s.access}</div>
+      <div class="schedule-access"><span class="monster-icon-inline">${getMonsterSVG('key')}</span> ${s.access}</div>
     `;
     grid.appendChild(card);
   });
@@ -433,6 +541,7 @@ function renderPricing(cycle = 'monthly') {
 
     filtered.forEach((item, i) => {
       const div = mk('div', 'gallery-item reveal in');
+      div.setAttribute('data-tilt', '');
       div.style.transitionDelay = `${i * 60}ms`;
 
       const img = document.createElement('img');
@@ -448,7 +557,7 @@ function renderPricing(cycle = 'monthly') {
           <span class="gob-tag">${item.tag}</span>
           <span class="gob-title">${item.alt}</span>
         </div>
-        <span class="gob-zoom-hint">🔍 TAP TO ZOOM</span>
+        <span class="gob-zoom-hint"><span class="monster-icon-inline">${getMonsterSVG('search')}</span> TAP TO ZOOM</span>
       `;
 
       div.appendChild(img);
@@ -491,25 +600,36 @@ function renderPricing(cycle = 'monthly') {
 })();
 
 /* ============================================================
-   11. TESTIMONIALS (8 Member Transformations)
+   11. TESTIMONIALS (ATHLETE STORIES) — SVG Stars, Zero Emojis
 ============================================================ */
 (function buildTestimonials() {
   const grid = $('#testimonials-grid');
   if (!grid || !window.TESTIMONIALS) return;
 
+  grid.innerHTML = '';
   TESTIMONIALS.forEach((t, i) => {
-    const card = mk('div', 'testi-card reveal');
+    const card = mk('div', 'testi-card reveal in');
+    card.setAttribute('data-tilt', '');
     card.style.transitionDelay = `${(i % 3) * 90}ms`;
+
+    const starCount = t.stars || 5;
+    const starsHtml = Array.from({ length: starCount }, () => `
+      <span class="star-svg-icon">${getMonsterSVG('star')}</span>
+    `).join('');
+
     card.innerHTML = `
       <div class="testi-top">
-        <div class="testi-stars">${'★'.repeat(t.stars)}</div>
+        <div class="testi-stars">${starsHtml}</div>
         <span class="testi-badge">${t.badge}</span>
       </div>
       <p class="testi-text">${t.text}</p>
       <div class="testi-footer">
         <div class="testi-name">${t.name} <span class="testi-role-tag">(${t.age} &bull; ${t.role})</span></div>
         <div class="testi-result">${t.result}</div>
-        <div class="testi-stats-tag">📈 ${t.stats} &bull; 📍 ${t.location}</div>
+        <div class="testi-stats-tag">
+          <span class="monster-icon-inline">${getMonsterSVG('chart')}</span> ${t.stats} &bull; 
+          <span class="monster-icon-inline">${getMonsterSVG('pin')}</span> ${t.location}
+        </div>
       </div>
     `;
     grid.appendChild(card);
@@ -517,11 +637,12 @@ function renderPricing(cycle = 'monthly') {
 })();
 
 /* ============================================================
-   12. BMI & MONSTER CALORIC / MACRO ENGINE
+   12. BMI & CALORIC ENGINE
 ============================================================ */
 (function initBMI() {
   const tbody = $('#bmi-tbody');
   if (tbody && window.BMI_CATEGORIES) {
+    tbody.innerHTML = '';
     BMI_CATEGORIES.forEach(cat => {
       const tr = document.createElement('tr');
       tr.innerHTML = `
@@ -568,50 +689,44 @@ function renderPricing(cycle = 'monthly') {
     let lbl = '', color = '', pct = 0, adviceText = '';
     if (bmi < 18.5) {
       lbl = 'Underweight (Hyper-Bulk Caloric Surplus Required)';
-      color = '#60CFFF';
+      color = '#E50914';
       pct = Math.min((bmi / 18.5) * 25, 25);
-      adviceText = 'Your skeletal frame needs serious iron density. Aim for a caloric surplus (+450 kcal) with heavy compound lifts 4 days a week. Keep protein at 2.0g/kg and emphasize clean carbohydrates like oats and rice.';
+      adviceText = 'Your skeletal frame needs serious iron density. Aim for a caloric surplus (+450 kcal) with heavy compound lifts 4 days a week. Keep protein elevated and emphasize clean carbohydrates.';
     } else if (bmi < 25) {
       lbl = 'Athletic Prime (Peak Conditioning & Hypertrophy)';
-      color = '#C8FF00';
+      color = '#FFFFFF';
       pct = 25 + ((bmi - 18.5) / 6.5) * 25;
-      adviceText = 'Prime genetic baseline! Maintain a slight surplus (+250 kcal) or recomp while progressively overloading your squat, bench, and pull. Focus on 2.2g protein per kg.';
+      adviceText = 'Prime genetic baseline! Maintain a slight surplus (+250 kcal) or recomp while progressively overloading your squat, bench, and pull. Focus on 1.0-1.2g protein per pound.';
     } else if (bmi < 30) {
-      lbl = 'Beast Mass / High Muscle Bulk Zone';
-      color = '#FFD600';
+      lbl = 'Power Mass / High Muscle Bulk Zone';
+      color = '#E50914';
       pct = 50 + ((bmi - 25) / 5) * 25;
-      adviceText = 'If you lift heavy iron, you are holding exceptional muscle mass! Keep protein elevated at 2.2g/kg and focus on a mild 300 kcal deficit to carve razor-sharp muscle definition.';
+      adviceText = 'If you lift heavy iron, you are holding exceptional muscle mass! Keep protein elevated and focus on a mild 300 kcal deficit to carve razor-sharp muscle definition.';
     } else {
       lbl = 'High Density / High-Octane Shred Protocol';
-      color = '#FF1E27';
+      color = '#B20710';
       pct = Math.min(75 + ((bmi - 30) / 10) * 25, 100);
-      adviceText = 'Commit to our metabolic turf conditioning and heavy progressive resistance regime to melt visceral fat while preserving raw power. Maintain a 500 kcal deficit with 2.2g protein per kg.';
+      adviceText = 'Commit to our metabolic turf conditioning and heavy progressive resistance regime to shed body fat while preserving raw power. Maintain a 500 kcal deficit with high protein.';
     }
 
-    // Protein calculation
     let proteinMultiplier = 2.0;
     if (goal === 'cut') proteinMultiplier = 2.2;
     if (goal === 'bulk') proteinMultiplier = 2.0;
     const dailyProtein = Math.round(w * proteinMultiplier);
 
-    // Approximate BMR via Mifflin-St Jeor
     const baseBMR = 10 * w + 6.25 * h - 5 * 25 + 5;
     let actFactor = act === 'advanced' ? 1.65 : act === 'moderate' ? 1.5 : 1.35;
     let targetCals = Math.round(baseBMR * actFactor);
     if (goal === 'cut') targetCals -= 450;
     if (goal === 'bulk') targetCals += 400;
 
-    // Macro distribution
     const proteinCals = dailyProtein * 4;
     const fatCals     = targetCals * 0.25;
     const carbCals    = Math.max(targetCals - proteinCals - fatCals, 200);
     const dailyCarbs  = Math.round(carbCals / 4);
     const dailyFats   = Math.round(fatCals / 9);
+    const dailyWater  = (w * 0.045).toFixed(1);
 
-    // Hydration target: 35ml to 45ml per kg
-    const dailyWater = (w * 0.045).toFixed(1);
-
-    // Training split suggestion
     let splitName = 'Push / Pull / Legs (PPL)';
     if (act === 'beginner') splitName = 'Full Body Linear (3-Day)';
     if (act === 'moderate') splitName = 'Upper / Lower (4-Day)';
@@ -641,19 +756,20 @@ function renderPricing(cycle = 'monthly') {
 })();
 
 /* ============================================================
-   13. FAQ ACCORDION (12 Questions)
+   13. FAQ ACCORDION
 ============================================================ */
 (function buildFAQ() {
   const list = $('#faq-list');
   if (!list || !window.FAQS) return;
 
+  list.innerHTML = '';
   FAQS.forEach((faq, i) => {
-    const item = mk('div', 'faq-item reveal');
+    const item = mk('div', 'faq-item reveal in');
     item.style.transitionDelay = `${(i % 4) * 50}ms`;
     item.innerHTML = `
       <button class="faq-btn" id="faq-btn-${i}" aria-expanded="false" aria-controls="faq-body-${i}">
         <span><span class="faq-num">${(i + 1).toString().padStart(2, '0')}.</span> ${faq.q}</span>
-        <span class="faq-chevron" aria-hidden="true">▼</span>
+        <span class="faq-chevron" aria-hidden="true">${getMonsterSVG('arrow')}</span>
       </button>
       <div class="faq-body" id="faq-body-${i}" role="region" aria-labelledby="faq-btn-${i}">
         <div class="faq-body-inner">${faq.a}</div>
@@ -670,7 +786,6 @@ function renderPricing(cycle = 'monthly') {
     const inner  = item.querySelector('.faq-body-inner');
     const isOpen = item.classList.contains('open');
 
-    // Close all
     $$('.faq-item.open').forEach(it => {
       it.classList.remove('open');
       it.querySelector('.faq-body').style.maxHeight = '0';
@@ -686,7 +801,7 @@ function renderPricing(cycle = 'monthly') {
 })();
 
 /* ============================================================
-   14. CONTACT FORM
+   14. CONTACT FORM & PLAN SELECTION
 ============================================================ */
 (function initContactForm() {
   const form    = $('#contact-form');
@@ -694,31 +809,39 @@ function renderPricing(cycle = 'monthly') {
   const submitB = $('#contact-submit-btn');
   if (!form) return;
 
+  document.addEventListener('click', e => {
+    const btn = e.target.closest('.plan-cta, .regime-cta');
+    if (!btn) return;
+    const planId = btn.dataset.planId;
+    const planSelect = $('#cf-plan');
+    if (planSelect && planId) {
+      if (planSelect.querySelector(`option[value="${planId}"]`)) {
+        planSelect.value = planId;
+      }
+    }
+  });
+
   form.addEventListener('submit', e => {
     e.preventDefault();
     const name  = $('#cf-name').value.trim();
     const phone = $('#cf-phone').value.trim();
-    const plan  = $('#cf-plan').value;
-    const msg   = $('#cf-msg').value.trim();
+    const plan  = $('#cf-plan') ? $('#cf-plan').value : '';
+    const msg   = $('#cf-msg') ? $('#cf-msg').value.trim() : '';
 
     if (!name || !phone) {
-      showMsg('Please fill in your name and phone number.', 'error');
+      showMsg('Please provide your name and phone number.', 'error');
       return;
     }
 
-    submitB.innerHTML = `⏳ SENDING INTEL...`;
+    submitB.innerHTML = `<span class="monster-icon-inline">${getMonsterSVG('lightning')}</span> TRANSMITTING INTEL...`;
     submitB.disabled  = true;
 
     setTimeout(() => {
-      showMsg('Message logged! Opening WhatsApp for instant front desk confirmation...', 'success');
+      showMsg(`Thank you, ${name}! Your inquiry has been transmitted to the Big Tex Gym front desk. A coach will contact you at ${phone} promptly.`, 'success');
       form.reset();
       submitB.innerHTML = `<span class="monster-icon-inline">${getMonsterSVG('lightning')}</span> SEND TO FRONT DESK`;
       submitB.disabled  = false;
-
-      // Open WhatsApp pre-filled window
-      const text = encodeURIComponent(`Salam Optimum Fitness! My name is ${name} (${phone}). I am interested in: ${plan}. Note: ${msg || 'None'}`);
-      window.open(`https://wa.me/923360222340?text=${text}`, '_blank');
-    }, 1200);
+    }, 900);
   });
 
   function showMsg(text, type) {
@@ -726,12 +849,236 @@ function renderPricing(cycle = 'monthly') {
     msgBox.className   = `form-msg ${type}`;
     msgBox.classList.remove('hidden');
     clearTimeout(msgBox._timer);
-    msgBox._timer = setTimeout(() => msgBox.classList.add('hidden'), 6000);
+    msgBox._timer = setTimeout(() => msgBox.classList.add('hidden'), 7000);
   }
 })();
 
 /* ============================================================
-   15. FOOTER YEAR
+   15. 3D CARD TILT & MAGNETIC HOVER ENGINE
+============================================================ */
+(function initCardTilt() {
+  const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+  if (isTouch) return; // Disable on touch devices for fluid scrolling
+
+  document.addEventListener('mousemove', e => {
+    const cards = $$('[data-tilt]');
+    cards.forEach(card => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      // Set CSS variables for radial mouse glow
+      card.style.setProperty('--mouse-x', `${x}px`);
+      card.style.setProperty('--mouse-y', `${y}px`);
+
+      if (x >= 0 && x <= rect.width && y >= 0 && y <= rect.height) {
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = ((y - centerY) / centerY) * -5.5;
+        const rotateY = ((x - centerX) / centerX) * 5.5;
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+      } else {
+        card.style.transform = '';
+      }
+    });
+  });
+
+  document.addEventListener('mouseleave', () => {
+    $$('[data-tilt]').forEach(card => {
+      card.style.transform = '';
+    });
+  });
+})();
+
+/* ============================================================
+   16. THREE.JS 3D HARDCORE BACKGROUND ENGINE
+============================================================ */
+(function initThreeBackground() {
+  const canvas = document.getElementById('three-bg-canvas');
+  if (!canvas || typeof THREE === 'undefined') return;
+
+  const heroSection = document.querySelector('.hero');
+  if (!heroSection) return;
+
+  // Scene & Camera
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(60, heroSection.clientWidth / heroSection.clientHeight, 0.1, 1000);
+  camera.position.z = 80;
+
+  // Renderer
+  const renderer = new THREE.WebGLRenderer({
+    canvas: canvas,
+    alpha: true,
+    antialias: true,
+    powerPreference: 'high-performance'
+  });
+  renderer.setSize(heroSection.clientWidth, heroSection.clientHeight);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+  // 1. Core Hardcore Geometric Polyhedron (Wireframe)
+  const geomCore = new THREE.IcosahedronGeometry(28, 1);
+  const matCore = new THREE.MeshBasicMaterial({
+    color: 0xE50914,
+    wireframe: true,
+    transparent: true,
+    opacity: 0.24
+  });
+  const coreMesh = new THREE.Mesh(geomCore, matCore);
+  scene.add(coreMesh);
+
+  // Outer secondary floating lattice
+  const geomOuter = new THREE.TorusGeometry(38, 1.4, 16, 60);
+  const matOuter = new THREE.MeshBasicMaterial({
+    color: 0xFFFFFF,
+    wireframe: true,
+    transparent: true,
+    opacity: 0.10
+  });
+  const outerRing = new THREE.Mesh(geomOuter, matOuter);
+  outerRing.rotation.x = Math.PI / 4;
+  scene.add(outerRing);
+
+  // 2. Dynamic Red & White Particle Embers
+  const particleCount = 280;
+  const particlePositions = new Float32Array(particleCount * 3);
+  const particleColors = new Float32Array(particleCount * 3);
+  const particleVelocities = [];
+
+  const colorRed = new THREE.Color(0xE50914);
+  const colorWhite = new THREE.Color(0xFFFFFF);
+  const colorDarkRed = new THREE.Color(0x990008);
+
+  for (let i = 0; i < particleCount; i++) {
+    const x = (Math.random() - 0.5) * 160;
+    const y = (Math.random() - 0.5) * 120;
+    const z = (Math.random() - 0.5) * 100;
+    particlePositions[i * 3]     = x;
+    particlePositions[i * 3 + 1] = y;
+    particlePositions[i * 3 + 2] = z;
+
+    particleVelocities.push({
+      y: 0.08 + Math.random() * 0.18,
+      x: (Math.random() - 0.5) * 0.04,
+      z: (Math.random() - 0.5) * 0.04,
+      resetY: -60 - Math.random() * 20
+    });
+
+    const choice = Math.random();
+    const c = choice > 0.65 ? colorWhite : (choice > 0.25 ? colorRed : colorDarkRed);
+    particleColors[i * 3]     = c.r;
+    particleColors[i * 3 + 1] = c.g;
+    particleColors[i * 3 + 2] = c.b;
+  }
+
+  const particleGeometry = new THREE.BufferGeometry();
+  particleGeometry.setAttribute('position', new THREE.BufferAttribute(particlePositions, 3));
+  particleGeometry.setAttribute('color', new THREE.BufferAttribute(particleColors, 3));
+
+  // Canvas texture for circular glowing particles
+  const createCircleTexture = () => {
+    const pCanvas = document.createElement('canvas');
+    pCanvas.width = 32;
+    pCanvas.height = 32;
+    const ctx = pCanvas.getContext('2d');
+    const grad = ctx.createRadialGradient(16, 16, 0, 16, 16, 16);
+    grad.addColorStop(0, 'rgba(255,255,255,1)');
+    grad.addColorStop(0.3, 'rgba(229,9,20,0.85)');
+    grad.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, 32, 32);
+    const texture = new THREE.Texture(pCanvas);
+    texture.needsUpdate = true;
+    return texture;
+  };
+
+  const particleMaterial = new THREE.PointsMaterial({
+    size: 2.8,
+    vertexColors: true,
+    transparent: true,
+    opacity: 0.85,
+    map: createCircleTexture(),
+    blending: THREE.AdditiveBlending,
+    depthWrite: false
+  });
+
+  const particleSystem = new THREE.Points(particleGeometry, particleMaterial);
+  scene.add(particleSystem);
+
+  // Mouse Parallax
+  let mouseX = 0;
+  let mouseY = 0;
+  let targetX = 0;
+  let targetY = 0;
+
+  window.addEventListener('mousemove', e => {
+    const halfW = window.innerWidth / 2;
+    const halfH = window.innerHeight / 2;
+    targetX = (e.clientX - halfW) * 0.015;
+    targetY = (e.clientY - halfH) * 0.015;
+  }, { passive: true });
+
+  // Scroll reactivity
+  let scrollY = 0;
+  window.addEventListener('scroll', () => {
+    scrollY = window.scrollY;
+  }, { passive: true });
+
+  // Resize Handler
+  const onResize = () => {
+    if (!heroSection) return;
+    const w = heroSection.clientWidth;
+    const h = heroSection.clientHeight;
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+    renderer.setSize(w, h);
+  };
+  window.addEventListener('resize', onResize, { passive: true });
+
+  // Animation Loop
+  const animate = () => {
+    requestAnimationFrame(animate);
+
+    mouseX += (targetX - mouseX) * 0.05;
+    mouseY += (targetY - mouseY) * 0.05;
+
+    // Slow rotation + mouse responsiveness + scroll rotation
+    coreMesh.rotation.x += 0.003;
+    coreMesh.rotation.y += 0.004 + scrollY * 0.0001;
+    coreMesh.position.x = mouseX * 0.8;
+    coreMesh.position.y = -mouseY * 0.8;
+
+    outerRing.rotation.z += 0.002;
+    outerRing.rotation.y += 0.003;
+    outerRing.position.x = mouseX * 0.5;
+    outerRing.position.y = -mouseY * 0.5;
+
+    // Animate embers rising
+    const positions = particleGeometry.attributes.position.array;
+    for (let i = 0; i < particleCount; i++) {
+      positions[i * 3 + 1] += particleVelocities[i].y;
+      positions[i * 3]     += particleVelocities[i].x;
+      positions[i * 3 + 2] += particleVelocities[i].z;
+
+      if (positions[i * 3 + 1] > 65) {
+        positions[i * 3 + 1] = particleVelocities[i].resetY;
+        positions[i * 3]     = (Math.random() - 0.5) * 160;
+        positions[i * 3 + 2] = (Math.random() - 0.5) * 100;
+      }
+    }
+    particleGeometry.attributes.position.needsUpdate = true;
+
+    camera.position.x = mouseX * 0.3;
+    camera.position.y = -mouseY * 0.3;
+    camera.lookAt(scene.position);
+
+    renderer.render(scene, camera);
+  };
+
+  animate();
+})();
+
+/* ============================================================
+   17. FOOTER YEAR
 ============================================================ */
 (function setYear() {
   const el = $('#footer-year');
@@ -739,7 +1086,7 @@ function renderPricing(cycle = 'monthly') {
 })();
 
 /* ============================================================
-   16. SCROLL REVEAL & HYDRATION
+   18. SCROLL REVEAL & HYDRATION
 ============================================================ */
 document.addEventListener('DOMContentLoaded', () => {
   hydrateMonsterIcons();

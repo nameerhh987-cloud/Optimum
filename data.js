@@ -300,42 +300,42 @@ const SCHEDULE = [
 /* ── GALLERY ──────────────────────────────────────────────── */
 const GALLERY = [
   { 
-    src: "gallery/g1.jpg", 
+    src: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=900&q=80", 
     category: "iron",    
     tag: "POWER RACKS",    
     alt: "Olympic Power Rack Arena", 
     desc: "Custom heavy-gauge squat cages with safety strap spotters, Texas power bars, calibrated steel plates, and chalk stations." 
   },
   { 
-    src: "gallery/g2.jpg", 
+    src: "https://images.unsplash.com/photo-1576678927484-cc907957088c?w=900&q=80", 
     category: "cardio",  
     tag: "TURF & CONDITIONING",   
     alt: "Conditioning & HIIT Deck",     
     desc: "Non-motorized curved treadmills, Concept2 rowers, Rogue Echo bikes, and sleds engineered for high-octane conditioning." 
   },
   { 
-    src: "gallery/g3.jpg", 
+    src: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=900&q=80", 
     category: "iron",    
     tag: "FREE WEIGHTS",   
     alt: "Heavy Dumbbell Arsenal",  
     desc: "Solid urethane dumbbell line climbing in increments all the way up to 150+ lbs pairs with flat and incline commercial benches." 
   },
   { 
-    src: "gallery/g4.jpg", 
+    src: "https://images.unsplash.com/photo-1605296867304-46d5465a13f1?w=900&q=80", 
     category: "iron",    
     tag: "PLATFORMS",      
     alt: "Olympic Deadlift Decks",   
     desc: "Triple-layer shock-absorbing oak platforms built for heavy deadlifts, cleans, and snatches with zero vibration feedback." 
   },
   { 
-    src: "gallery/g5.jpg", 
+    src: "https://images.unsplash.com/photo-1593079831268-3381b0db4a77?w=900&q=80", 
     category: "machine", 
     tag: "CABLE RIGS",     
     alt: "Hammer Strength Rig",     
     desc: "Full line of plate-loaded iso-lateral machines, multi-station cable jungle gyms, heavy rows, and leg curl towers." 
   },
   { 
-    src: "gallery/g6.jpg", 
+    src: "https://images.unsplash.com/photo-1540497077202-7c8a3999166f?w=900&q=80", 
     category: "iron",  
     tag: "STRENGTH SANCTUM", 
     alt: "Hardcore Training Floor",    
